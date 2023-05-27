@@ -1,5 +1,6 @@
 ﻿using BaconBackend.DataObjects;
 using BaconBackend.Helpers;
+using BaconBackend.Managers;
 using Baconit.Interfaces;
 using Baconit.Panels;
 using System;
@@ -166,6 +167,19 @@ namespace Baconit.HelperControls
         /// <param name="e"></param>
         private async void SubscribeButton_Click(object sender, RoutedEventArgs e)
         {
+            Subreddit subreddit = new Subreddit()
+            {
+                DisplayName = m_currentSubreddit.DisplayName,
+                Title = m_currentSubreddit.Title,
+                Id = m_currentSubreddit.Id
+            };
+
+            List<Subreddit> subreddits = App.BaconMan.SubredditMan.SubredditList;
+            subreddits.Add(subreddit);
+            App.BaconMan.SubredditMan.SetSubreddits(subreddits);
+            // App.BaconMan.SubredditMan.Update();
+            return;
+
             // Ensure we are signed in.
             // #todo should we disable the button if they aren't signed in?
             if (!App.BaconMan.UserMan.IsUserSignedIn)

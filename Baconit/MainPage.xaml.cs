@@ -616,8 +616,12 @@ namespace Baconit
             {
                 // We have search content, go to search.
                 Dictionary<string, object> args = new Dictionary<string, object>();
-                args.Add(PanelManager.NAV_ARGS_SEARCH_QUERY, ui_quickSearchBox.Text);
-                m_panelManager.Navigate(typeof(Search), "Search", args);
+                //args.Add(PanelManager.NAV_ARGS_SEARCH_QUERY, ui_quickSearchBox.Text);
+                //m_panelManager.Navigate(typeof(Search), "Search", args);
+
+                args.Add(PanelManager.NAV_ARGS_SUBREDDIT_NAME, ui_quickSearchBox.Text);
+                m_panelManager.Navigate(typeof(SubredditPanel), ui_quickSearchBox.Text + SortTypes.Hot + SortTimeTypes.Week, args);
+
                 CloseAllPanels(true);
             }
         }

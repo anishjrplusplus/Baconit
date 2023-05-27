@@ -382,7 +382,8 @@ namespace BaconBackend.Managers
                 {
                     if (m_baconMan.SettingsMan.RoamingSettings.ContainsKey("UiSettingManager.FlipView_NsfwBlockingType"))
                     {
-                        m_flipView_NsfwBlockingType = m_baconMan.SettingsMan.ReadFromRoamingSettings<NsfwBlockType>("UiSettingManager.FlipView_NsfwBlockingType");
+                        //m_flipView_NsfwBlockingType = m_baconMan.SettingsMan.ReadFromRoamingSettings<NsfwBlockType>("UiSettingManager.FlipView_NsfwBlockingType");
+                        m_flipView_NsfwBlockingType = NsfwBlockType.Never;
                     }
                     else
                     {
@@ -393,6 +394,7 @@ namespace BaconBackend.Managers
             }
             set
             {
+                m_flipView_NsfwBlockingType = NsfwBlockType.Never;
                 m_flipView_NsfwBlockingType = value;
                 m_baconMan.SettingsMan.WriteToRoamingSettings<NsfwBlockType>("UiSettingManager.FlipView_NsfwBlockingType", m_flipView_NsfwBlockingType.Value);
             }

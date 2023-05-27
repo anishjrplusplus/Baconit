@@ -389,7 +389,7 @@ namespace BaconBackend.Managers
         /// Used to sort and add fix up the subreddits before they are saved.
         /// </summary>
         /// <param name="subreddits"></param>
-        private void SetSubreddits(List<Subreddit> subreddits)
+        public void SetSubreddits(List<Subreddit> subreddits)
         {
             List<Subreddit> newSubredditList = new List<Subreddit>();
             foreach(Subreddit subreddit in subreddits)

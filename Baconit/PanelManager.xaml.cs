@@ -1249,7 +1249,8 @@ namespace Baconit
         /// <returns></returns>
         private async Task<double> SetStatusBar_Internal(Color? color = null, double opacity = 1)
         {
-            StatusBar statusbar = StatusBar.GetForCurrentView();
+            //Windows.UI.ViewManagement.StatusBar
+            /*StatusBar statusbar = StatusBar.GetForCurrentView();
             if (statusbar != null)
             {
                 if (color.HasValue)
@@ -1259,7 +1260,7 @@ namespace Baconit
                 statusbar.BackgroundOpacity = opacity;
                 await statusbar.ShowAsync();
                 return statusbar.OccludedRect.Height;
-            }
+            }*/
             return 0;
         }
     }
